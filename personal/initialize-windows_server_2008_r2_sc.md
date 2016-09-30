@@ -31,7 +31,7 @@ c:\>dism /online /get-features /format:table
 ### 7.安装.NET Framework 2.0/3.0
 ```powershell
 c:\>dism /online /enable-feature /featurename:NetFx2-ServerCore
-	dism /online /enable-feature /featurename:NetFx3-ServerCore
+c:\>dism /online /enable-feature /featurename:NetFx3-ServerCore
 ```
 ### 8.安装IIS服务角色
 ```powershell
