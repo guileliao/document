@@ -101,15 +101,7 @@ c:\>shutdown /r
 c:\>shutdown /p
 ```
 ## 其他功能
-
 ### 下载文件
-=======
-## 22.关机导出模板待用
-```powershell
-c:\>shutdown /p
-```
-#####
-下载文件
 ```powershell
 >powershell
 	PS>$client = new-object System.Net.WebClient
