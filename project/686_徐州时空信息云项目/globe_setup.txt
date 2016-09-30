@@ -1,0 +1,10 @@
+
+#cloudstack全局配置
+secstorage.allowed.internal.sites（192.168.230.40） #模板上传地址，可用ip和网段
+expunge.delay（120） #虚拟机实际销毁时间
+expunge.interval（60） #虚拟机销毁间隔时间
+endpointe.url（http://192.168.2390.10:8080/client） #管理节点访问地址
+max.account.user.vms（253） #每用户最大创建虚拟机数量
+
+#服务方案
+在计算方案名称后加“-preset”
