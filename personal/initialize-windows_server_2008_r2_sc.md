@@ -51,7 +51,6 @@ c:\>dism /online /enable-feature /featurename:IIS-FTPSvc
 c:\>dism /online /enable-feature /featurename:IIS-FTPExtensibility
 ```
 ## 11.选择远程管理控制台选项，并安装IIS管理服务：
->>>>>>> e7e6da26487c80b6d04ff32fc6fc718be616b93f
 ```powershell
 c:\>dism /online /enable-feature /featurename:IIS-ManagementService
 c:\>dism /online /enable-feature /featurename:WAS-WindowsActivationService
