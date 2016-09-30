@@ -7,7 +7,6 @@ c:\>sconfig
     a. 创建本地管理员用户(geostack:123@abc.com)
     b. 打开远程桌面
     c. 打开自动更新
-
 ### 2. 关闭防火墙
 ```powershell
 c:\>Netsh Firewall Set Opmode disable
