@@ -49,12 +49,17 @@ c:\>dism /online /enable-feature /featurename:IIS-FTPServer
 c:\>dism /online /enable-feature /featurename:IIS-FTPSvc
 c:\>dism /online /enable-feature /featurename:IIS-FTPExtensibility
 ```
+<<<<<<< HEAD
 ## 12.选择远程管理控制台选项，并安装IIS管理服务：
+=======
+## 11.选择远程管理控制台选项，并安装IIS管理服务：
+>>>>>>> c28c4beaeeb4c63327a4fb59c63fabc7760833f0
 ```powershell
 c:\>dism /online /enable-feature /featurename:IIS-ManagementService
 c:\>dism /online /enable-feature /featurename:WAS-WindowsActivationService
 c:\>dism /online /enable-feature /featurename:WAS-ConfigurationAPI
 ```
+<<<<<<< HEAD
 ## 13.安装成功后，还需要更改一些注册表键值来激活管理服务：
 ```powershell
 c:\>Reg Add HKLM\Software\Microsoft\WebManagement\Server /V EnableRemoteManagement /T REG_DWORD /D 1
@@ -96,6 +101,49 @@ c:\>mkdir c:\webroot\localuser\geostack
 c:\>shutdown /r
 ```
 ## 23.关机导出模板待用
+=======
+## 12.安装成功后，还需要更改一些注册表键值来激活管理服务：
+```powershell
+c:\>Reg Add HKLM\Software\Microsoft\WebManagement\Server /V EnableRemoteManagement /T REG_DWORD /D 1
+```
+## 13.启动IIS服务
+```powershell
+c:\>net start w3svc
+```
+## 14.添加IIS服务自启动
+```powershell
+c:\>sc config w3svc start= auto
+```
+## 15.启动FTP服务
+```powershell
+c:\>net start FTPSVC
+```
+## 16.添加FTP服务自启动
+```powershell
+c:\>sc config FTPSVC start= auto
+```
+## 17.启动IIS服务管理器
+```powershell
+c:\>net start wmsvc
+```
+## 18.添加IIS服务管理器自启动
+```powershell
+c:\>sc config wmsvc start= auto
+```
+## 19.添加站点发布目录
+```powershell
+c:\>mkdir c:\webroot\localuser\public
+```
+## 20.添加本地管理员ftp私有目录
+```powershell
+c:\>mkdir c:\webroot\localuser\geostack
+```
+## 21.重启操作系统验证服务
+```powershell
+c:\>shutdown /r
+```
+## 22.关机导出模板待用
+>>>>>>> c28c4beaeeb4c63327a4fb59c63fabc7760833f0
 ```powershell
 c:\>shutdown /p
 ```
