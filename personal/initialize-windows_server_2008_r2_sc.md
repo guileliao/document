@@ -49,9 +49,7 @@ c:\>dism /online /enable-feature /featurename:IIS-FTPServer
 c:\>dism /online /enable-feature /featurename:IIS-FTPSvc
 c:\>dism /online /enable-feature /featurename:IIS-FTPExtensibility
 ```
-<<<<<<< HEAD
 ## 11.选择远程管理控制台选项，并安装IIS管理服务：
->>>>>>> c28c4beaeeb4c63327a4fb59c63fabc7760833f0
 ```powershell
 c:\>dism /online /enable-feature /featurename:IIS-ManagementService
 c:\>dism /online /enable-feature /featurename:WAS-WindowsActivationService
@@ -98,11 +96,9 @@ c:\>mkdir c:\webroot\localuser\geostack
 c:\>shutdown /r
 ```
 ## 22.关机导出模板待用
->>>>>>> c28c4beaeeb4c63327a4fb59c63fabc7760833f0
 ```powershell
 c:\>shutdown /p
 ```
-
 #####
 下载文件
 ```powershell
