@@ -1,0 +1,101 @@
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '123456' WITH GRANT OPTION;
+
+一、Mysql配置文件设置
+1、master01
+在/etc/my.cnf 文件中[mysqld]下添加以下内容
+
+[mysqld]
+
+#Globe Options
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+max_connections=3000
+wait_timeout=1814400
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+symbolic-links=0
+lower_case_table_names=1			#表名不区分大小写
+max_allowed_packet=1000000000			#设置允许的最大字节数，避免通过sql恢复数据报错。
+net_buffer_length=1000000k			#网络传输吞吐量
+character-set-server=utf8			#设置服务器存储数据位utf8编码
+collation-server = utf8_general_ci		#排序规则为utf8不区分大小写
+#binlog_format=MIXED				#仅针对activemq选项
+
+#innodb Options
+innodb_file_per_table=1				#设置每个innodb表一个文件
+innodb_log_buffer_size=8M
+innodb_flush_log_at_trx_commit=1		#(master)每一次事务提交或事务外的指令都需要把日志写入（flush）硬盘
+innodb_buffer_pool_size=512M
+innodb_additional_mem_pool_size=256M
+innodb_log_file_size=128M
+innodb_lock_wait_timeout=50
+
+#Cluser Options
+server-id=3					#服务器唯一标识id，只能是1-232之间的整数，用机器IP末尾的数字
+log-bin=mysql-bin				#(master)启用二进制日志
+log_slave_updates=1				#(slave)将从slave日志执行的SQL操作写入bin-log日志中继给下个slave，当集群中存在m和s节点并且有多个s节点时才需要配置
+log_bin_trust_function_creators=1		#允许复制自定义函数
+expire_logs_days=10				#清理log_bin日志的时间间隔
+sync_binlog=1					#(master)同步二进制log到硬盘文件
+relay_log_purge=1				#relay日志文件清理
+relay_log_recovery=1				#relay日志文件异常恢复
+slave_parallel_workers=4			#(master&slave)设置SLAVE SQL线程并发数
+
+[mysqld_safe]
+
+default-character-set=utf8
+
+
+
+2.slave01
+在/etc/my.cnf 文件中[mysqld]下添加以下内容
+
+[mysqld]
+
+#Globe Options
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+max_connections=3000
+wait_timeout=1814400
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+symbolic-links=0
+lower_case_table_names=1			#表名不区分大小写
+max_allowed_packet=1000000000			#设置允许的最大字节数，避免通过sql恢复数据报错。
+net_buffer_length=1000000k			#网络传输吞吐量
+character-set-server=utf8			#设置服务器存储数据位utf8编码
+collation-server = utf8_general_ci		#排序规则为utf8不区分大小写
+#binlog_format=MIXED				#仅针对activemq选项
+
+#innodb Options
+innodb_file_per_table=1				#设置每个innodb表一个文件
+innodb_log_buffer_size=8M
+innodb_flush_log_at_trx_commit=1		#(master)每一次事务提交或事务外的指令都需要把日志写入（flush）硬盘
+innodb_buffer_pool_size=512M
+innodb_additional_mem_pool_size=256M
+innodb_log_file_size=128M
+innodb_lock_wait_timeout=50
+
+#Cluser Options
+server-id=3					#服务器唯一标识id，只能是1-232之间的整数，用机器IP末尾的数字
+log_bin_trust_function_creators=1		#允许复制自定义函数
+relay_log_purge=1				#relay日志文件清理
+relay_log_recovery=1				#relay日志文件异常恢复
+slave_parallel_workers=4			#(master&slave)设置SLAVE SQL线程并发数
+
+[mysqld_safe]
+
+default-character-set=utf8
+
+
+ 
+
+
+
+
+
+
+
+
+
