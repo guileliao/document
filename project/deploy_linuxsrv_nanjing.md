@@ -33,7 +33,8 @@
 ```
  - 解压程序包；
 ```bash
-	# tar xvf /opt/jdk-8u162-linux-x64.tar.gz && rm /opt/jdk-8u162-linux-x64.tar.gz -rf
+	# cd /opt
+	# tar xvf jdk-8u162-linux-x64.tar.gz && rm /opt/jdk-8u162-linux-x64.tar.gz -rf
 ```
 
 ## 3. 部署elasticsearch-2.4.6（随文档提交的软件包内已经预先做了配置处理，请检查配置文件。）
@@ -42,11 +43,12 @@
 
  - 校验程序包的md5码；
 ```bash
-	# md5sum elasticsearch-2.4.6-with-plugin.tar.xz
+	# md5sum /srv/elasticsearch-2.4.6-with-plugin.tar.xz
 ```
  - 解压程序包；
 ```bash
-	# tar xvf elasticsearch-2.4.6-with-plugin.tar.xz && rm elasticsearch-2.4.6-with-plugin.tar.xz -rf
+	# cd /srv
+	# tar xvf elasticsearch-2.4.6-with-plugin.tar.xz && rm /srv/elasticsearch-2.4.6-with-plugin.tar.xz -rf
 ```
  - 修改配置文件；
 ```bash
@@ -71,11 +73,12 @@
 
  - 校验程序包的md5码；
 ```bash
-	# md5sum apache-tomcat-6.0.53-vm.tar.xz
+	# md5sum /srv/apache-tomcat-6.0.53-vm.tar.xz
 ```
  - 解压程序包；
 ```bash
-	# tar xvf apache-tomcat-6.0.53-vm.tar.xz && rm apache-tomcat-6.0.53-vm.tar.xz -rf
+	# cd /srv
+	# tar xvf apache-tomcat-6.0.53-vm.tar.xz && rm /srv/apache-tomcat-6.0.53-vm.tar.xz -rf
 ```
  - 启动apache-tomcat6.0.53(注意在catalina.sh文件前段声明**JAVA_HOME**)
 ```bash
