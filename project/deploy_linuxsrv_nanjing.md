@@ -15,11 +15,11 @@
 
  - 磁盘分区：
 
-    |类型|挂载点|文件系统|尺寸|  
-    |-|-|-|-| 
-    |基础分区|/boot|ext4|500MB|  
-    |基础分区|/|ext4|200GB|  
-    |基础分区|/home|ext4|剩余可用空间|  
+   |类型|挂载点|文件系统|尺寸|  
+   |-|-|-|-| 
+   |基础分区|/boot|ext4|500MB|  
+   |基础分区|/|ext4|200GB|  
+   |基础分区|/home|ext4|剩余可用空间|  
 
  - 操作系统软件集：最小化安装CentOS
 
@@ -84,4 +84,15 @@
 ```bash
 	# /srv/apache-tomcat-6.0.53/bin/catalina.sh start
 ```
+
+
+
+
+## md5码对照表
+
+   |md5码|文件名|
+   |-|-|
+   |776ff2fbc355dd2b297ef76a17c91592|apache-tomcat-6.0.53-vm.tar.xz|
+   |2164a10d36a752cba67369a02ed9694c|elasticsearch-2.4.6-with-plugin.tar.xz|
+   |781e3779f0c134fb548bde8b8e715e90|jdk-8u162-linux-x64.tar.gz|
 
